@@ -31,7 +31,7 @@ The project demonstrates:
 ## Database Diagram
 
 <p align="center">
-  <img src=<img width="1344" height="1009" alt="DATABASE SCHEMA" src="https://github.com/user-attachments/assets/b5500c85-504c-416f-a467-b1dee8276cb7" />
+  <img width="1344" height="1009" alt="DATABASE SCHEMA" src="https://github.com/user-attachments/assets/b5500c85-504c-416f-a467-b1dee8276cb7" />
  />
 </p>
 

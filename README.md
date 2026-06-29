@@ -156,6 +156,4 @@ This project helped strengthen skills in:
 
 ---
 
-## 📎 Source
 
-This README was updated by reading the `NovaStoreDB;.sql` script in the repository.

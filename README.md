@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  A sleek and structured SQL Server project designed for an e-commerce database management system.
+  A structured SQL Server project designed for an e-commerce database management system.
 </p>
 
 ---
@@ -15,42 +15,24 @@
 ## Overview
 
 **NovaStore DB Management System** is a relational database project built with **Microsoft SQL Server** and **T-SQL**.  
-It models a realistic e-commerce workflow with tables for products, categories, customers, orders, and order details.
+It models a realistic e-commerce workflow with tables for categories, products, customers, orders, and order details.
 
-The project demonstrates:
+The script also includes:
 
-- Database schema design
-- Primary and foreign key relationships
-- Data insertion and management
+- Schema teardown and recreation for repeatable execution
+- Sample data seeding
 - Analytical SQL queries
-- View creation
-- Backup operations
+- Window functions and CTE examples
+- A reusable SQL view
+- OLAP-style dimension and fact tables
+- Indexing simulation
+- Transaction management with TRY...CATCH
 
 ---
 
-## Database Diagram
+## Database Schema
 
-<p align="center">
-  <img width="1344" height="1009" alt="DATABASE SCHEMA" src="https://github.com/user-attachments/assets/b5500c85-504c-416f-a467-b1dee8276cb7" />
- />
-</p>
-
----
-
-## Core Features
-
-- Clean relational schema design
-- Identity-based primary keys
-- Foreign key constraints for data integrity
-- Sample data for real-world testing
-- JOIN-based reporting queries
-- Aggregate and time-based analysis
-- SQL View for simplified reporting
-- Backup command for database export
-
----
-
-## Tables
+### OLTP Tables
 
 | Table | Description |
 |------|-------------|
@@ -59,6 +41,31 @@ The project demonstrates:
 | `Customers` | Stores customer information |
 | `Orders` | Stores order headers and totals |
 | `OrderDetails` | Stores order line items |
+
+### OLAP Tables
+
+| Table | Description |
+|------|-------------|
+| `dim_customer` | Customer dimension for analytical reporting |
+| `dim_product` | Product dimension for analytical reporting |
+| `Fact_Sales` | Sales fact table for warehouse-style analysis |
+
+---
+
+## Main Features
+
+- Clean relational schema design
+- Identity-based primary keys
+- Foreign key constraints for data integrity
+- Sample data for real-world testing
+- JOIN-based reporting queries
+- Aggregate and time-based analysis
+- CTEs and window functions
+- SQL View for simplified reporting
+- Backup command for database export
+- Star schema transformation for OLAP-style analysis
+- Transaction handling for order processing
+- Index creation and query performance demonstration
 
 ---
 
@@ -72,10 +79,14 @@ This project includes practical SQL examples such as:
 - Counting products per category
 - Calculating total revenue per customer
 - Measuring days since each order was placed
+- Finding latest orders per customer
+- Comparing `RANK()` and `DENSE_RANK()`
+- Running total and growth analysis
+- Monthly sales aggregation
 
 ---
 
-## Advanced Objects
+## Advanced Database Objects
 
 ### View
 A reusable view named **`vw_SiparisOzet`** combines customer, order, and product data into a single reporting layer.
@@ -89,13 +100,29 @@ BACKUP DATABASE NovaStoreDB TO DISK = 'C:\Yedek\NovaStoreDB.bak';
 
 ---
 
+## Performance and Transaction Examples
+
+The SQL script also demonstrates:
+
+- Generating mock product data for performance testing
+- Comparing table scans and index seeks
+- Creating a non-clustered index on `PRODUCT_NAME`
+- Using `BEGIN TRY...BEGIN CATCH` for transaction safety
+- Rolling back failed checkout operations
+
+---
+
 ## Technologies Used
 
 - Microsoft SQL Server
 - T-SQL
 - Relational Database Design
 - DDL / DML / DQL
-- DB Diagram tools
+- Window Functions
+- CTEs
+- Star Schema / OLAP Concepts
+- Database Indexing
+- Transaction Management
 
 ---
 
@@ -111,6 +138,11 @@ This project helped strengthen skills in:
 - SQL views
 - Data analysis
 - Backup and maintenance operations
+- Data warehouse modeling
+- Performance optimization basics
 
 ---
 
+## Source
+
+This README was updated by reading the `NovaStoreDB;.sql` script in the repository.
